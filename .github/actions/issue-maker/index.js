@@ -7,8 +7,6 @@ async function run() {
         const jokeBody = core.getInput("joke");
         const token = core.getInput("repo-token");
 
-        console.log("Joke1: " + jokeBody);
-        console.log(`Joke2: ${jokeBody}`);
         if (!jokeBody) {
             throw `Action input 'joke' is incorrect: "${jokeBody}"`;
         }

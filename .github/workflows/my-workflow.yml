@@ -22,10 +22,11 @@ jobs:
 
     - name: hello-action
       uses: ./.github/actions/hello-world
-      id: jokes
 
     - name: ha-ha
       uses: ./.github/actions/joke-action
+      id: jokes
+      
     - name: create-issue
       uses: ./.github/actions/issue-maker
       with:
