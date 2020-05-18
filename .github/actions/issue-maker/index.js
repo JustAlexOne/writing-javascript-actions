@@ -10,7 +10,7 @@ async function run() {
         console.log("Joke1: " + jokeBody);
         console.log(`Joke2: ${jokeBody}`);
         if (!jokeBody) {
-            throw `Action input 'joke' is incorrect: ${jokeBody}`;
+            throw `Action input 'joke' is incorrect: "${jokeBody}"`;
         }
         const octokit = new github.GitHub(token);
 
@@ -21,7 +21,7 @@ async function run() {
             body: jokeBody
         });
     } catch (error) {
-        console.error("Execution failed")
+        console.error(`Execution failed with error: ${error}`)
         core.setFailed(error.message);
     }
 }
