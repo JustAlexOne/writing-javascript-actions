@@ -12,17 +12,20 @@ console.log(`Hello ${secondGreeting}`);
 if (thirdGreeting) {
     console.log(`Hello ${thirdGreeting}`);
 }
+try {
+    const directoryPath = './';
+    // const directoryPath = path.join(__dirname, 'Document');
 
-const directoryPath = './';
-// const directoryPath = path.join(__dirname, 'Document');
+    fs.readdir(directoryPath, function (err, files) {
+        console.log('Reading files in dir: ' + directoryPath);
+        if (err) {
+            return console.log('Unable to scan directory: ' + err);
+        }
 
-fs.readdir(directoryPath, function (err, files) {
-    console.log('Reading files in dir: ' + directoryPath);
-    if (err) {
-        return console.log('Unable to scan directory: ' + err);
-    }
-
-    files.forEach(function (file) {
-        console.log('File: ' + file);
+        files.forEach(function (file) {
+            console.log('File: ' + file);
+        });
     });
-});
+} catch (err) {
+    console.log('Error: ' + err);
+}
